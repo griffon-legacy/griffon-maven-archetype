@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.griffon</groupId>
+  <artifactId>griffon-maven-archetype</artifactId>
+  <version>1.0.0</version>
+  
+  <name>Maven archetype for Griffon projects</name>
+  <description>Maven archetype for Griffon projects.</description>
+  <url>http://github.com/griffon/griffon-maven-archetype</url>
+  
+  <distributionManagement>
+    <repository>
+      <id>codehaus.org</id>
+      <name>Griffon Main Repository</name>
+      <url>dav:https://dav.codehaus.org/repository/griffon</url>
+    </repository>
+    
+    <snapshotRepository>
+      <id>codehaus.org</id>
+      <name>Griffon Snapshots Repository</name>
+      <url>dav:https://dav.codehaus.org/snapshots.repository/griffon</url>
+    </snapshotRepository>
+  </distributionManagement>
+</project>

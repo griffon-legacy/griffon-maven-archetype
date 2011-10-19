@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <packaging>jar</packaging>
+    <version>${version}</version>
+
+    <name>A custom griffon project</name>
+    <description>A custom griffon project</description>
+    <url>http://www.myorganization.org</url>
+
+    <properties>
+        <griffon.version>0.9.4</griffon.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.codehaus.griffon</groupId>
+            <artifactId>griffon-rt</artifactId>
+            <version>${griffon.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.16</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.griffon</groupId>
+                <artifactId>griffon-cli</artifactId>
+                <version>${griffon.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.griffon</groupId>
+                <artifactId>griffon-cli</artifactId>
+                <version>${griffon.version}</version>
+                <scope>compile</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>codehaus</id>
+            <url>http://repository.codehaus.org</url>
+        </repository>
+        <repository>
+            <id>grails</id>
+            <url>http://repo.grails.org/grails/core</url>
+        </repository>
+        <repository>
+            <id>springsource - bundles</id>
+            <url>http://repository.springsource.com/maven/bundles/release</url>
+        </repository>
+        <repository>
+            <id>springsource - libraries</id>
+            <url>http://repository.springsource.com/maven/libraries/release</url>
+        </repository>
+        <repository>
+            <id>springsource - external</id>
+            <url>http://repository.springsource.com/maven/libraries/external</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <pluginManagement/>
+
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.griffon</groupId>
+                <artifactId>griffon-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>init</goal>
+                            <goal>maven-clean</goal>
+                            <goal>validate</goal>
+                            <goal>config-directories</goal>
+                            <goal>maven-compile</goal>
+                            <goal>maven-test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>tools</id>
+            <activation>
+                <property>
+                    <name>java.vendor</name>
+                    <value>Sun Microsystems Inc.</value>
+                </property>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.sun</groupId>
+                    <artifactId>tools</artifactId>
+                    <version>${java.version}</version>
+                    <scope>system</scope>
+                    <systemPath>${java.home}/../lib/tools.jar</systemPath>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+</project>
